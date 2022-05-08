@@ -1,0 +1,7 @@
+Django
+django-filter
+djangorestframework
+Pillow
+easy-thumbnails
+gunicorn
+django-environ
