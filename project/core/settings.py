@@ -46,8 +46,10 @@ INSTALLED_APPS = [
     'apps.todos.apps.TodosConfig',
     # Third party apps
     'rest_framework',
+    'rest_framework.authtoken',
     'django_filters',
     'easy_thumbnails',
+    'rest_registration',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,22 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = [BASE_DIR / 'assets']
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', 
+    )
+}
+
+REST_REGISTRATION = {
+    'LOGIN_RETRIEVE_TOKEN': True,
+    'REGISTER_VERIFICATION_ENABLED': False,
+    'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
+    'RESET_PASSWORD_VERIFICATION_ENABLED': False,
+}

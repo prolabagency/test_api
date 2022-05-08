@@ -17,4 +17,5 @@ router.register('todo-categories', TodoCategoryViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('accounts/', include('rest_registration.api.urls')),
 ]
