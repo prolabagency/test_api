@@ -6,3 +6,4 @@ easy-thumbnails
 gunicorn
 django-environ
 django-rest-registration
+django-cors-headers
