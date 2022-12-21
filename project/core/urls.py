@@ -21,8 +21,8 @@ from django.urls import path, include
 from apps.api.urls import urlpatterns as news_urls
 
 urlpatterns = [
-    path('', admin.site.urls),
     path('api/v1/', include(news_urls)),
+    path('', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

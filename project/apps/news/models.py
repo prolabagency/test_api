@@ -9,6 +9,7 @@ class Category(models.Model):
         return self.name
     
     class Meta:
+        db_table = 'news_categories'
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ['name']
@@ -21,6 +22,7 @@ class Tag(models.Model):
         return self.name
     
     class Meta:
+        db_table = 'tags'
         verbose_name = 'Тег'
         verbose_name_plural = 'Теги'
         ordering = ['name']
@@ -33,13 +35,14 @@ class News(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='news', null=True, blank=True)
-    tags = models.ManyToManyField(Tag, related_name='news', blank=True, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='news_category', null=True, blank=True)
+    tags = models.ManyToManyField(Tag, related_name='news_tags', blank=True)
 
     def __str__(self):
         return self.title
     
     class Meta:
+        db_table = 'news'
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
         ordering = ['-created_at']
@@ -56,6 +59,7 @@ class Comment(models.Model):
         return self.text
     
     class Meta:
+        db_table = 'news_comments'
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
         ordering = ['-created_at']
@@ -71,6 +75,7 @@ class Image(models.Model):
         return self.image.name
     
     class Meta:
+        db_table = 'news_images'
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
         ordering = ['news']
@@ -85,6 +90,7 @@ class Video(models.Model):
         return self.video.name
     
     class Meta:
+        db_table = 'news_videos'
         verbose_name = 'Видео'
         verbose_name_plural = 'Видео'
         ordering = ['news']

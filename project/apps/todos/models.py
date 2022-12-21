@@ -10,6 +10,7 @@ class Category(models.Model):
         return self.name
     
     class Meta:
+        db_table = 'todos_categories'
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ['name']
@@ -28,6 +29,7 @@ class Todo(models.Model):
         return self.title
     
     class Meta:
+        db_table = 'todos'
         verbose_name = 'Задача'
         verbose_name_plural = 'Задачи'
         ordering = ['-created_at']

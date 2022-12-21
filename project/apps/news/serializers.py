@@ -6,7 +6,12 @@ class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
         fields = '__all__'
-        read_only_fields = ('id','created_at', 'updated_at', 'isActive')
+        # extra_kwargs = {
+        #     'id': {'read_only': True},
+        #     'isActive': {'read_only': True},
+        #     'created_at': {'read_only': True},
+        #     'updated_at': {'read_only': True},
+        # }
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -25,7 +30,10 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'
-        read_only_fields = ('id','isActive')
+        # extra_kwargs = {
+        #     'id': {'read_only': True},
+        #     'isActive': {'read_only': True},
+        # }
 
 
 class ImageSerializer(serializers.ModelSerializer):

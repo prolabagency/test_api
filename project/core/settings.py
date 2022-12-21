@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'apps.news.apps.NewsConfig',
     'apps.todos.apps.TodosConfig',
     # Third party apps
+    'drf_yasg',
+    # 'rest_framework_swagger',
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',

@@ -7,3 +7,5 @@ gunicorn
 django-environ
 django-rest-registration
 django-cors-headers
+drf-yasg
+django-rest-swagger
