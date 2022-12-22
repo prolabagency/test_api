@@ -1,5 +1,5 @@
 from .models import Category, Todo
-from .serializers import CategorySerializer, TodoSerializer
+from .serializers import CategoriesSerializer, TodoSerializer
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.viewsets import ModelViewSet
@@ -7,7 +7,7 @@ from rest_framework.viewsets import ModelViewSet
 
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.filter(isActive=True)
-    serializer_class = CategorySerializer
+    serializer_class = CategoriesSerializer
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['name']
     ordering_fields = ['name']
